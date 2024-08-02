@@ -20,6 +20,7 @@ export default defineConfig(({ command }) => {
           plugins: [
             { removeViewBox: false },
             { removeEmptyAttrs: false },
+            { removeAttrs: { attrs: '(id)' } }
           ],
         },
         webp: {
