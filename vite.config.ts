@@ -1,5 +1,5 @@
 import { defineConfig } from 'vite';
-import viteImagemin from 'vite-plugin-imagemin';
+import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 import postcssConfig from './postcss.config.ts';
 import injectHTML from 'vite-plugin-html-inject';
 import FullReload from 'vite-plugin-full-reload';
@@ -15,12 +15,17 @@ export default defineConfig(({ command }) => {
     },
     base: './',
     plugins: [
-      viteImagemin({
+      ViteImageOptimizer({
         svgo: {
-          plugins: [{ removeViewBox: false }, { removeEmptyAttrs: false }],
+          plugins: [
+            { removeViewBox: false },
+            { removeEmptyAttrs: false },
+          ],
         },
-        webp: { quality: 75 },
-      }),
+        webp: {
+          quality: 80,
+        },
+      } as any),
       injectHTML(),
       FullReload(['./src/**/*.{html,css,js,ts}']),
       compression({
@@ -53,12 +58,10 @@ export default defineConfig(({ command }) => {
         },
       },
     },
-
     server: {
       watch: {
-        usePolling: true, 
+        usePolling: true,
       },
     },
-
   };
 });
