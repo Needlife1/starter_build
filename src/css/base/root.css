@@ -9,16 +9,3 @@
     --gray-secondarily: #bebebe;
     --backdrop-bg: rgba(0, 0, 0, 0.5);
 }
-
-
-.body{
-    background-color: gold;
-  }
-  
-  h1{
-    color: blue;
-  }
-  
-  .h2{
-    color: aquamarine;
-  }
