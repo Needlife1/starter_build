@@ -17,11 +17,7 @@ export default defineConfig(({ command }) => {
     plugins: [
       ViteImageOptimizer({
         svgo: {
-          plugins: [
-            { removeViewBox: false },
-            { removeEmptyAttrs: false },
-            { removeAttrs: { attrs: '(id)' } }
-          ],
+          quality: 20,
         },
         webp: {
           quality: 80,
