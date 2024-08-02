@@ -1,9 +1,7 @@
 import { defineConfig } from 'vite';
-import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 import postcssConfig from './postcss.config.ts';
 import injectHTML from 'vite-plugin-html-inject';
 import FullReload from 'vite-plugin-full-reload';
-import compression from 'vite-plugin-compression';
 import fg from 'fast-glob';
 
 export default defineConfig(({ command }) => {
@@ -15,24 +13,8 @@ export default defineConfig(({ command }) => {
     },
     base: './',
     plugins: [
-      ViteImageOptimizer({
-        svgo: {
-          quality: 20,
-        },
-        webp: {
-          quality: 80,
-        },
-      } as any),
       injectHTML(),
       FullReload(['./src/**/*.{html,css,js,ts}']),
-      compression({
-        verbose: true,
-        disable: false,
-        deleteOriginFile: false,
-        threshold: 10240,
-        algorithm: 'gzip',
-        ext: '.gz',
-      }),
     ],
     css: {
       postcss: postcssConfig,
