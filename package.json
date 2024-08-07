@@ -9,7 +9,6 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "@fullhuman/postcss-purgecss": "^6.0.0",
     "autoprefixer": "^10.4.19",
     "modern-normalize": "^2.0.0",
     "postcss": "^8.4.40",
